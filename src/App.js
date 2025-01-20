@@ -9,7 +9,7 @@ const App = () => {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/api/chats");
+        const response = await axios.get("https://chatbotbackend-9ijz.onrender.com/api/chats");
         setMessages(response.data);
       } catch (error) {
         console.error("Error fetching messages:", error);
@@ -22,7 +22,7 @@ const App = () => {
   const handleSendMessage = async () => {
     if (inputMessage.trim()) {
       try {
-        const response = await axios.post("http://localhost:3001/api/chat", {
+        const response = await axios.post("https://chatbotbackend-9ijz.onrender.com/api/chat", {
           message: inputMessage,
         });
         setMessages((prev) => [...prev, { userMessage: inputMessage, botReply: response.data.reply }]);
